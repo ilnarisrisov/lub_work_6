@@ -10,3 +10,9 @@
 Среда разработки: PyCharm
 
 # Результаты тестирования
+Тест 1
+![1--](https://github.com/ilnarisrisov/lub_work_6/assets/146421910/a5b87c5c-520e-4c10-a5c1-86cf66f5b8fd)
+Тест 2
+![2--](https://github.com/ilnarisrisov/lub_work_6/assets/146421910/a784e753-4e76-4418-85b5-672a8aaeffe4)
+Тест 3
+![3--](https://github.com/ilnarisrisov/lub_work_6/assets/146421910/3bad8978-26b0-43a1-942e-389651c6c8ac)
