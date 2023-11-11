@@ -12,7 +12,10 @@
 # Результаты тестирования
 Тест 1
 ![1--](https://github.com/ilnarisrisov/lub_work_6/assets/146421910/1e70a511-5a63-417f-8cac-e21d23220187)
+
 Тест 2
 ![2--](https://github.com/ilnarisrisov/lub_work_6/assets/146421910/e74a506f-569a-42f8-9590-d8149ea55e00)
+
 Тест 3
 ![3--](https://github.com/ilnarisrisov/lub_work_6/assets/146421910/ca929b1d-c519-4f47-91c9-e0381f7f8636)
+
