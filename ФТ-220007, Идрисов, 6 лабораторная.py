@@ -5,38 +5,39 @@ while True:
     except ValueError:
         print('\nВведено, вероятно, не целое число, попробуйте ввести натуральное')
 
-def weight_of_criteria(number_of_criteria):
+def weight_of_criterias(number_of_criteria):
 
-    weight_of_criteria_for_cycle = []
+    matrix = [[0 for _ in range(number_of_criteria)] for _ in range(number_of_criteria)]
 
     for i in range(number_of_criteria):
-        row = []
         for j in range(number_of_criteria):
-            while True:
-                try:
-                    criteria_weights = float(input('Введите попарное сравнение для критерия ' + str(i+1) + ' и ' + str(j+1) + ': '))
-                    break
-                except ValueError:
-                    print('Введено не число, попробуйте что-то другое')
-            row.append(criteria_weights)
-        weight_of_criteria_for_cycle.append(row)
-    return weight_of_criteria_for_cycle
+            if i == j:
+                matrix[i][j] = 1
+            elif j < i:
+                matrix[i][j] = 1 / matrix[j][i]
+            else:
+                criteria_weights = 0
+                while criteria_weights == 0:
+                    try:
+                        criteria_weights = float(input(f"\nВведите попарное сравнение для критериев {i} и {j}: "))
+                        break
+                    except ValueError:
+                        print('\nВведено не число, попробуйте что-то другое')
+                matrix[i][j] = criteria_weights
 
-def calculation_of_weight_coefficients(weight_of_criteria_for_cycle):
-    number_of_criteria = len(weight_of_criteria_for_cycle)
-    weight = []
+    weights = [1 for _ in range(number_of_criteria)]
     for i in range(number_of_criteria):
-        pre_result = 1
         for j in range(number_of_criteria):
-            pre_result = pre_result * weight_of_criteria_for_cycle[i][j] / sum(weight_of_criteria_for_cycle[i])
-        weight.append(pre_result)
-    end_result = sum(weight)
-    weight = [criteria_weights / end_result for criteria_weights in weight]
-    return weight
+            weights[i] *= matrix[i][j]
+        weights[i] **= 1 / number_of_criteria
 
-weight_of_criteria_for_cycle = weight_of_criteria(number_of_criteria)
-weight = calculation_of_weight_coefficients(weight_of_criteria_for_cycle)
+    totale = sum(weights)
+    round_criteria_weights = [round(criteria_weights / totale, 2) for criteria_weights in weights]
+
+    return round_criteria_weights
+
+weights = weight_of_criterias(number_of_criteria)
 
 print('\nВесовые коэффициенты: ')
-for i, criteria_weights in enumerate(weight):
-    print(f"\nКритерий {i + 1}: {criteria_weights:.2f}")
+for criteria_weights in weights:
+    print(f"\n{criteria_weights:.2f}")
